@@ -32,11 +32,7 @@ function initApp(config, callback) {
 	};
 
 	const client = new MongoClient(
-		config.database,
-		{
-			useNewUrlParser: true,
-			useUnifiedTopology: true
-		}
+		config.database
 	);
 
 	client.on('timeout', () => {

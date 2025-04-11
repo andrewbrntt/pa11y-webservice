@@ -25,7 +25,7 @@ function initTask(config, app) {
 	if (!config.cron) {
 		config.cron = '0 30 0 * * *'; // 00:30 daily
 	}
-	const job = new CronJob(config.cron, taskRunner.bind(null, app));
+	const job = CronJob.from({cronTime: config.cron, onTick: taskRunner.bind(null, app)});
 	job.start();
 }
 
